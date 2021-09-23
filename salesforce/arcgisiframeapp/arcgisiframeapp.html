@@ -1,0 +1,16 @@
+<template>
+    <lightning-card>
+        <lightning-button variant="brand-outline" label={experienceBuilderLabel} title="Looks like a link" onclick={gotoExperienceBuilder} class="slds-p-bottom_small slds-align_absolute-center slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand-outline" label={webAppBuilderLabel} title="Looks like a link" onclick={gotoWebAppBuilder} class="slds-p-bottom_small slds-align_absolute-center slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand-outline" label={arcgisDashboardLabel} title="Looks like a link" onclick={gotoArcgisDashboard} class="slds-p-bottom_small slds-align_absolute-center slds-m-left_x-small"></lightning-button>
+    </lightning-card>
+        <div if:true={showExperienceBuilder}>
+            <div class="embed-container"><iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="test map" src="https://experience.arcgis.com/experience/003f05cc447b46dc8818640c38b69b83"></iframe></div>
+        </div>
+        <div if:true={showWebAppBuilder}>
+            <div class="embed-container"><iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="test map" src={url}></iframe></div>
+        </div>
+        <div if:true={showArcgisDashboard}>
+            <div class="embed-container"><iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="test map" src="https://inscomm.maps.arcgis.com/apps/opsdashboard/index.html#/11d40d5edb95436ebcb812d5ecd51a31"></iframe></div>
+        </div>
+</template>
