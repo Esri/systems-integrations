@@ -9,3 +9,11 @@ For many of the samples there is an ArcGIS Platform API Key required. You can cr
 Some of the samples demonstrate integrating ArcGIS Online and ArcGIS Enterprise with a system. You will need your own license for ArcGIS Online and ArcGIS Enterprise to test these samples.
 
 Please let us know if you have feedback, find issues, or have ideas. The team will be active on this repository.
+
+**Issues**</br>
+
+Find a bug or want to request a new feature? Please let us know by submitting an <a href="https://github.com/ArcGIS/systems-integrations/issues">issue</a>.
+
+**Contributing**</br>
+
+Esri welcomes contributions from anyone and everyone. Please see our guidelines for contributing.
