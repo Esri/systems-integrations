@@ -1,4 +1,6 @@
-<h1>Salesforce</h1>
+# Integrating Salesforce and ArcGIS
+
+## The ArcGIS System
 
 This repository contains sample apps, scripts, and guidance for integrating ArcGIS with Salesforce.
 
@@ -7,5 +9,11 @@ For many of the samples there is an ArcGIS Platform API Key required. You can cr
 
 **ArcGIS Online and ArcGIS Enterprise**</br>
 Some of the samples demonstrate integrating ArcGIS Online and ArcGIS Enterprise with a system. You will need your own license for ArcGIS Online and ArcGIS Enterprise to test these samples.
+
+## Salesforce
+
+These samples assume a moderate degree of familiarity with Salesforce. Salesforce offers an introduction to Salesforce development on their Trailhead in the [Developer Beginner Trail](https://trailhead.salesforce.com/en/content/learn/trails/force_com_dev_beginner), including a Trail specific to [getting started with VS Code](https://trailhead.salesforce.com/content/learn/projects/quickstart-vscode-salesforce?trail_id=force_com_dev_beginner).
+
+## Feedback
 
 Please let us know if you have feedback, find issues, or have ideas. The team will be active on this repository.
