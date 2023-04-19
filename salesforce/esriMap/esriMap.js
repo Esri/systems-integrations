@@ -16,12 +16,16 @@ import { LightningElement, api, track, wire } from 'lwc';
 import { getRecord } from 'lightning/uiRecordApi';
 import {loadScript, loadStyle} from 'lightning/platformResourceLoader';
 
-//Create API key using your ArcGIS Developer account developers.arcgis.com
-const apiKey = "";  
+// Create API key using your ArcGIS Developer account developers.arcgis.com
+const apiKey = "";
 
+const FIELD_COLS = [
+    'BillingLatitude__c',
+    'BillingLongitude__c'
+]
 const FIELDS = [
-  'Account.Billing_Address_Latitude__c',
-  'Account.BillingLongitude__c'];
+  'Account.' + FIELD_COLS[0],
+  'Account.' + FIELD_COLS[1]];
 
 const DefaultLat  = 35.7796;
 const DefaultLong = -78.6382;
@@ -38,8 +42,8 @@ export default class LeafletMap extends LightningElement {
         if (data) {
             this.record = data;
             this.error = undefined;
-            this.billinglatitude = this.setLatitude(this.record.fields.Billing_Address_Latitude__c.value);
-            this.billinglongitude = this.setLongitude(this.record.fields.BillingLongitude__c.value);
+            this.billinglatitude = this.setLatitude(this.record.fields[FIELD_COLS[0]].value);
+            this.billinglongitude = this.setLongitude(this.record.fields[FIELD_COLS[1]].value);
             this.wireRecordReceived = true;
             this.renderedCallback();
         } else if (error) {
@@ -58,7 +62,6 @@ export default class LeafletMap extends LightningElement {
 
     renderedCallback(){
       if (this.wireRecordReceived) {
-        console.log(this.wireRecordReceived);
           this.loadLeaflet();
       }
       this.leafletInitialzed = true;
