@@ -61,43 +61,47 @@ export default class LeafletMap extends LightningElement {
 
     renderedCallback() {
         if (this.wireRecordReceived) {
-            this.loadLeaflet();
+            this.loadMap();
         }
         this.leafletInitialzed = true;
     }
 
+    // Helper function to load Leaflet. Returns a promise.
     loadLeaflet() {
-        const promise1 = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(
-                    loadScript(
-                        this,
-                        'https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js'
-                    )
-                );
-            }, 100);
-        });
-        const promise2 = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(
-                    loadScript(
-                        this,
-                        'https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.js'
-                    )
-                );
-            }, 200);
-        });
-
-        Promise.all([
+        return Promise.all([
             loadStyle(this, 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css'),
             loadScript(this, 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js'),
-            promise1,
-            promise2,
+        ]);
+    }
+
+    // Helper function to load Esri Leaflet. Returns a promise.
+    loadEsriLeaflet() {
+        return loadScript(
+            this,
+            'https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js'
+        );
+    }
+
+    // Helper function to load Esri Leaflet Geocoder. Returns a promise.
+    loadEsriLeafletGeocoder() {
+        return Promise.all([
+            loadScript(
+                this,
+                'https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.js'
+            ),
             loadStyle(
                 this,
                 'https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.css'
             ),
-        ])
+        ]);
+    }
+
+    loadMap() {
+        // The loading of these libraries is important: First leaflet, then esri leaflet,
+        //  then esri leaflet geocoder. So use promises to do that.
+        this.loadLeaflet()
+            .then(this.loadEsriLeaflet)
+            .then(this.loadEsriLeafletGeocoder)
             .then(() => {
                 this.initializeMap();
             })
