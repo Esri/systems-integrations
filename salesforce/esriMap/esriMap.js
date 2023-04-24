@@ -72,7 +72,7 @@ export default class LeafletMap extends LightningElement {
                 resolve(
                     loadScript(
                         this,
-                        'https://unpkg.com/esri-leaflet@3.0.2/dist/esri-leaflet.js'
+                        'https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js'
                     )
                 );
             }, 100);
@@ -82,20 +82,20 @@ export default class LeafletMap extends LightningElement {
                 resolve(
                     loadScript(
                         this,
-                        'https://unpkg.com/esri-leaflet-geocoder@3.1.1/dist/esri-leaflet-geocoder.js'
+                        'https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.js'
                     )
                 );
             }, 200);
         });
 
         Promise.all([
-            loadStyle(this, 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'),
-            loadScript(this, 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js'),
+            loadStyle(this, 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css'),
+            loadScript(this, 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js'),
             promise1,
             promise2,
             loadStyle(
                 this,
-                'https://unpkg.com/esri-leaflet-geocoder@3.1.1/dist/esri-leaflet-geocoder.css'
+                'https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.css'
             ),
         ])
             .then(() => {
