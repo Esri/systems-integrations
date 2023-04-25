@@ -39,6 +39,14 @@ For getting started with the `esriMap` folder (Lightening Web Component):
 - Follow the instructions you learned in the "Quick Start Lightening Web Components" training to deploy the code (right-click "default" > "deploy source to Org").
 - Add the new LWC to an **Account** page.
 
+### Using Esri Leaflet Vector
+
+The above quick start shows how to use Leaflet, Esri Leaflet, and Esri Leaflet Geocoder within a Salesforce Lighting Web Component (LWC). The natural next step is to use vector basemaps, using the [Esri Leaflet Vector plugin](https://github.com/Esri/esri-leaflet-vector). As of April 2023, it is not possible to use Esri Leaflet Vector within a Lightening Web Component. Here's why:
+
+It is our understanding web workers cannot be used within LWCs (search "worker" on [this page](https://developer.salesforce.com/docs/component-library/tools/locker-service-viewer)). The Esri Leaflet Vector plugin uses [Maplibre GL JS](https://github.com/maplibre/maplibre-gl-js) to load vector tiles. Maplibre GL JS uses web workers. So because of the web worker limitation from Salesforce, you cannot use Esri Leaflet Vector. We hope this restriction may change in the future.
+
+If you've found a way to use vector basemaps in Salesforce Lightening Web Components, please reach out by creating an issue in this repo. Thank you!
+
 ## Feedback
 
 Please let us know if you have feedback, find issues, or have ideas. The team will be active on this repository.
